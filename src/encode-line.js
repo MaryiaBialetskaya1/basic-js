@@ -11,7 +11,11 @@ const { NotImplementedError } = require("../extensions/index.js");
  *
  */
 function encodeLine(str) {
-  throw new NotImplementedError("Not implemented");
+  return str.replace(/([a-z])\1*/g, (it) =>
+    it.length > 1 ? it.length + it[0] : it[0]
+  );
+
+  //throw new NotImplementedError("Not implemented");
   // remove line with error and write your code here
 }
 
