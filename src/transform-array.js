@@ -14,18 +14,16 @@ const { NotImplementedError } = require("../extensions/index.js");
  *
  */
 function transform(arr) {
-  arr.flatMap((a, b, c) => {
-    if (c[b + 1] === "--discard-prev") return [];
-    if (c[b - 1] === "--double-next") return [a, a];
-    if (c[b + 1] === "--double-prev") return [a, a];
-
-    if (a.toString().startsWith("--d")) return [];
-
-    return a;
-  });
-
-  // throw new NotImplementedError("Not implemented");
-  // remove line with error and write your code here
+  let arr1 = [];
+  if (!Array.isArray(arr)) {
+    throw new Error("'arr' parameter must be an instance of the Array!");
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== "undefined") {
+      arr1.push(arr[i]);
+    }
+  }
+  return arr1;
 }
 
 module.exports = {
